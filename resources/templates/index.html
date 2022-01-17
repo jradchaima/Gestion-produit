@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="utf-8"/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>Product Manager</title>
+
+</head>
+<body>
+<div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">
+              Liste des produits
+            </h1>
+        </div>
+    <a href="/ajouter"><button class="btn btn-outline-primary btn-lg float-left">Ajouter Produit</button></a>
+    <table class="table">
+    <thead class="thead-dark">
+                <th>Produit ID</th>
+                <th>Designation</th>
+                <th>Prix</th>
+               <th>Opérations</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produit : ${listproduits}">
+                <td th:text="${produit.id}"></td>
+                <td th:text="${produit.designation}"></td>
+                <td th:text="${produit.prix}"></td>
+                <td>
+                    <a th:href="@{/editer/{id}(id=${produit.id})}"><button class="btn btn-success">
+                    Edit</button></a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/supprimer/{id}(id=${produit.id})}"><button class="btn btn-danger">Supprimer</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

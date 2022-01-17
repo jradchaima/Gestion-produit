@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   
+<title>Insert title here</title>
+</head>
+<body>
+
+ <fieldset>
+        <legend>Ajouter un produit</legend>
+      <form action="#" th:action="@{/enregister}" th:object="${produit}" method="POST">
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                      <label for="Designation">Designation</label>
+                 <input type="text" th:field="*{designation}" />
+                    </div>
+                </div>
+                     <div class="col">
+                    <div class="form-group">
+                      <label for="Prix">Prix</label>
+                 <input type="text" th:field="*{prix}" />
+                    </div>
+                </div>
+             
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-outline-primary btn-block">Enregister</button>
+            </div>
+        </form>
+    </fieldset>
+
+</body>
+</html>
